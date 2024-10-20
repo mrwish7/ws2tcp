@@ -5,7 +5,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Websocket and TCP server address options.')
 
-parser.add_argument('-W', '--websocket', type=str, dest="websocket", default='ws://127.0.0.1/rds', help='address of the FM-DX Webserver RDS websocket')
+parser.add_argument('-W', '--websocket', type=str, dest="websocket", default='ws://127.0.0.1/rdsspy', help='address of the FM-DX Webserver RDS websocket')
 parser.add_argument('-I', '--server-ip', type=str, dest="host", default='0.0.0.0', help='IP address for the forwarding TCP server')
 parser.add_argument('-P', '--server-port', type=int, dest="port", default=7373, help='port for the forwarding TCP server')
 
@@ -23,6 +23,10 @@ def handle_client(client_socket, ws):
         while True:
             # Receive data from the WebSocket
             data = ws.recv()
+
+            # Make sure the variable is bytes
+            if isinstance(data, str):
+                data = data.encode('utf-8')
 
             # Forward the data to the client
             client_socket.send(data)
