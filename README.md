@@ -18,7 +18,7 @@ A Python websocket to TCP server to enable forwarding RDS data from FM-DX-Webser
 - Optional command-line arguments -
   - `-W`, `--websocket`
 
-    Set RDS websocket address for the FM-DX webserver that you want to receive RDS data from (**default:** `ws://127.0.0.1:8080/rds`)
+    Set RDS websocket address for the FM-DX webserver that you want to receive RDS data from (**default:** `ws://127.0.0.1:8080/rdsspy`)
   - `-I`, `--server-ip`
 
     Set IP address/interface for the forwarding TCP server (**default:** 0.0.0.0)
